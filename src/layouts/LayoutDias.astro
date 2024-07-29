@@ -1,0 +1,14 @@
+---
+interface Props {
+  Date: string,
+}
+
+const { Date } = Astro.props;
+---
+
+<main class="bg-black text-white w-full max-w-[calc(900px-(8*4))] h-auto mx-auto px-8 gap-64 flex flex-col">
+  <section class="w-auto max-w-[calc(900px-(8*4))] mx-auto">
+    <p class="date">{Date}</p>
+    <slot />
+  </section>
+</main>

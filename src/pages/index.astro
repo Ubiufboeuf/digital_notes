@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Materia } from '../components/Materia.jsx'
+import { lista } from "../lib/lista.js"
+---
+
+<Layout title="Inicio">
+	<main
+		id="main"
+		class="grid place-items-center gap-8 w-full max-w-[calc(900px-(8*4))] mx-auto"
+	>
+		{
+			lista.map((materia) => {
+				return (
+					<Materia
+						title={materia.title}
+						body={materia.content}
+						href={materia.link}
+					/>
+				)
+			})
+		}
+	</main>
+</Layout>
+
+<style>
+	#main {
+		grid-template-columns: repeat(auto-fill, minmax(calc(96px * 4), 1fr));
+	}
+</style>

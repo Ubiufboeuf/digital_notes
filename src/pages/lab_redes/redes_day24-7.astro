@@ -1,0 +1,68 @@
+---
+import LayoutLabRedes from "../../layouts/Layout_lab_redes.astro";
+---
+
+<LayoutLabRedes title="Clase 24/7" date="24 de Julio de 2024" dateLink="redes_day24-7">
+  <article class="max-w-[700px] mx-auto flex flex-col gap-8">
+    <section>
+      <h1 class="title">Protocolo de mensajes de Internet (ICMP)</h1>
+    </section>
+      
+    <section>
+      <p>Comandos para ver tu dirección ip:</p>
+      <div class="mockup-code">
+        <pre data-prefix=">"><code>ipconfig</code></pre>
+        <pre data-prefix=">"><code>ifconfig</code></pre>
+        <pre data-prefix=">"><code>ip add</code></pre>
+      </div>
+    </section>
+
+    <section class="text">
+      <p>
+        El protocolo
+          <span class="sub">ICMP</span>
+        es usado para enviar mensajes de rror e información.
+      </p>
+      <p>
+        Es parte del protocolo de internet (IP) y se utiliza principalmente para diagnosticar problemas en la red. Es un protocolo de la <span class="sub">capa de red</span> del <a class="link link-info">modelo OSI</a> (capa 3)</p>
+    </section>
+    
+    <section class="text">
+      <h1 class="title">Diagnóstico de red</h1>
+      <li><a class="link link-info">Ping</a></li>
+      <p>Este comando es usao para verificar la conectividad entre 2 dispositivos.</p>
+      <p>Envía un paquete <span class="sub">ICMP</span> "echo request" y espera un <span class="sub">ICMP</span> "echo reply".</p>
+      <div class="mockup-code"><pre data-prefix=">"><code>ping [options] &lt;destination&gt;</code></pre></div>
+      <br />
+      <p>El parámetro -t envía paquetes ping de manera contínua.</p>
+      <div class="mockup-code">
+        <pre data-prefix=">"><code>ping -t [ip]</code></pre>
+      </div>
+      <p class="text-warning">Esto no funciona en Linux. En Linux el parámetro -t define el tiempo de vida de los paquetes.</p>
+      <br />
+      <p>El parámetro -n especifica el número de solicitudes "echo request" que se envían.</p>
+      <div class="mockup-code">
+        <pre data-prefix=">"><code>ping -n [cantidad pkgs] [ip]</code></pre>
+      </div>
+      <br />
+      <p>Para interpretar un ping se necesita tener en cuenta la siguiente información:</p>
+      
+      <li>Bytes</li>
+      <p>Son el tamaño de datos enviados en cada paquete y cmp, generalmente con un tamaño de 32 bytes.</p>
+      
+      <li>Tiempo</li>
+      <p>Identifica lo que tarda un paquete en ir desde el origen al destino y volver, es medido en ms.</p>
+      <p>Valores bajos indican buena latencia.</p>
+      
+      <li>TTL (Time To Live)</li>
+      <p>Es un campo de cabecera de un paquete que indica el Nº de saltos que puede atravesar antes de ser descartado por el router.</p>
+      <p>Tiene como propçosito evitar que los paquetes queden identificados en la red.</p>
+    </section>
+
+    <section class="text">
+      <h1 class="title">Seguridad</h1>
+      <p>Es posible que el ping sea bloqueado por el firewall debido a reglas de seguridad, ya que los ataques <span class="sub">DDOS</span> (Denegación de Servicio Distribuido) pueden aprovechar los paquetes <span class="sub">ICMP</span> para sobrecargar y desestabilizar la red.</p>
+      <p>Un ataque <span class="sub">DDOS</span> es un tipo de ciberataque utilizado para inundar un objetivo con tráfico agobiando su capacidad de respuesta y haciendo que los servicios ofrecidos por el objetivo se vuelvan inaccesibles para los usuarios legítimos.</p>
+    </section>
+  </article>
+</LayoutLabRedes>

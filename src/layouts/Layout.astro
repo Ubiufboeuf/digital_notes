@@ -1,0 +1,182 @@
+---
+import listaMenu from "../lib/listaMenu.js";
+import MateriaAside from "../components/MateriaAside";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} - Notes</title>
+	</head>
+	<body id="root" class="grid">
+		<aside id="aside" class="bg-primary-content relative max-w-full h-screen flex justify-center items-center flex-col">
+			<ul class="menu h-full w-full max-w-full overflow-y-auto flex-nowrap">
+				<li><a href="/" class="title flex justify-center">Inicio</a></li>
+				{
+					listaMenu.map((materia) => {
+						return (
+							<MateriaAside
+								item={materia}
+							/>
+						)
+					})
+				}
+			</ul>
+		</aside>
+		<button id="menu-btn" class="btn btn-primary-content text-primary absolute border-2 hover:border-primary">
+			<img src="/menu.svg" />
+		</button>
+		<slot />
+	</body>
+</html>
+<script>
+	const menu_btn = document.querySelector("#menu-btn")
+	menu_btn.addEventListener("click", () => {
+		document.querySelector("#aside").classList.toggle("opened")
+	})
+</script>
+<style is:global>
+	@font-face {
+		font-family: Inter;
+		src: url("/Inter.ttf");
+	}
+	
+	@font-face {
+		font-family: Poppins;
+		src: url("/Poppins.ttf");
+	}
+
+	@font-face {
+		font-family: NotoSans;
+		src: url("/NotoSans.ttf");
+	}
+
+	@font-face {
+		font-family: CascadiaCode;
+		src: url("/CascadiaCode.ttf");
+	}
+
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+	}
+
+	code {
+		font-family:
+			CascadiaCode,
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	}
+	
+	*:not(code, pre) {
+		font-family: Inter, Poppins, NotoSans, system-ui, Arial, sans-serif;
+	}
+
+	body {
+		height: 100vh;
+		max-height: 100vh;
+		grid-template-columns: 300px 1fr;
+		/* overflow-y: hidden; */
+	}
+
+	body > #menu-btn {
+		display: none;
+		z-index: 9999;
+	}
+
+	body #aside {
+		transition: left .2s ease;
+	}
+
+	body > #aside > ul {
+		scrollbar-gutter: stable;
+	}
+
+	body > main {
+		min-height: 100vh;
+		padding: 32px 0 128px;
+		overflow-y: auto;
+		scrollbar-gutter: stable;
+	}
+
+	.opened {
+		left: 0 !important;
+	}
+
+	.date {
+		margin: 0 0 16px;
+	}
+
+	.title {
+		font-size: 30px;
+		line-height: 36px;
+		font-weight: 700;
+		margin-bottom: 32px;
+		text-align: center;
+	}
+
+	.text {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.sub {
+		font-weight: 600;
+		text-decoration: underline;
+	}
+</style>
+<style is:global>
+	@media (width <= 1080px) {
+		#root {
+			display: flex;
+		}
+		#root > #menu-btn {
+			display: flex;
+		}
+		#root > main {
+			width: 100%;
+		}
+		#aside {
+			position: absolute;
+			padding-top: 49px;
+			left: -300px;
+			z-index: 9999;
+			width: 300px;
+		}
+		#breadcrumb-wrapper {
+			margin-top: 16px;
+			margin-bottom: 16px;
+		}
+	}
+</style>

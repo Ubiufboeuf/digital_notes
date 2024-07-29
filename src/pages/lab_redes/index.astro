@@ -1,0 +1,27 @@
+---
+import LayoutLabRedes from "../../layouts/Layout_lab_redes.astro";
+import LayoutDias from "../../layouts/LayoutDias.astro";
+import ListaRedes from "./ListaRedes";
+
+---
+
+<LayoutLabRedes title="Inicio">
+  <h1 class="title">
+    Laboratorio de Redes de Área Local
+  </h1>
+  <ul class="menu h-full w-full flex flex-col justify-start items-center">
+    {
+      ListaRedes.map((dia) => {
+        return (
+          <li id="dia" class="w-full"><a href=`/lab_redes/${dia.link}` class="h-full w-full max-w-[700px] mx-auto flex items-center text-info link underline-offset-4">Clase {dia.fecha.dia}/{dia.fecha.mes} - {dia.date}</a></li>
+        )
+      })
+    }
+  </ul>
+</LayoutLabRedes>
+
+<style>
+  #dia {
+    height: 48px;
+  }
+</style>
