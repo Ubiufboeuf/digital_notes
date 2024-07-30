@@ -1,6 +1,6 @@
 ---
-import listaMenu from "../lib/listaMenu.js";
-import MateriaAside from "../components/MateriaAside";
+import MateriaAside from "@components/MateriaAside";
+import lista from "@lib/lista";
 
 interface Props {
 	title: string;
@@ -24,10 +24,10 @@ const { title } = Astro.props;
 			<ul class="menu h-full w-full max-w-full overflow-y-auto flex-nowrap">
 				<li><a href="/" class="title flex justify-center">Inicio</a></li>
 				{
-					listaMenu.map((materia) => {
+					lista.map((materia, idx) => {
 						return (
 							<MateriaAside
-								item={materia}
+								materia={materia}
 							/>
 						)
 					})

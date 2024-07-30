@@ -1,11 +1,11 @@
 ---
-import LayoutLabRedes from "../../layouts/Layout_lab_redes.astro";
-import LayoutDias from "../../layouts/LayoutDias.astro";
-import ListaRedes from "./ListaRedes";
+import LayoutMaterias from "@layouts/LayoutMaterias.astro";
+import LayoutDias from "@layouts/LayoutDias.astro";
+import { ListaRedes } from "@lib/ListaRedes";
 
 ---
 
-<LayoutLabRedes title="Inicio">
+<LayoutMaterias title="Inicio" materiaLink="lab_redes" materiaName="Lab Redes">
   <h1 class="title">
     Laboratorio de Redes de Área Local
   </h1>
@@ -18,7 +18,7 @@ import ListaRedes from "./ListaRedes";
       })
     }
   </ul>
-</LayoutLabRedes>
+</LayoutMaterias>
 
 <style>
   #dia {

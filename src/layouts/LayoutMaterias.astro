@@ -7,18 +7,20 @@ interface Props {
   title: string,
   date?: string,
   dateLink?: string,
+  materiaName: string,
+  materiaLink: string,
 }
 
-const { title, date, dateLink } = Astro.props;
+const { title, date, dateLink, materiaName, materiaLink } = Astro.props;
 ---
 
-<Layout title=`${title} - Lab Redes`>
+<Layout title=`${title} - ${materiaName}`>
   <main class="text-primary w-full max-w-[calc(900px-(8*4))] h-full mx-auto px-8 flex flex-col">
     <div class="min-h-16 max-w-[700px] w-full mx-auto flex justify-between items-center">
       <div class="breadcrumbs h-8">
         <ul class="h-full">
           <li><a href="/">Inicio</a></li>
-          <li><a href="/lab_redes/">Lab Redes</a></li>
+          <li><a href={`/${materiaLink}/`}>{materiaName}</a></li>
           <FinalCrumb date={date} link={dateLink} />
         </ul>
       </div>
