@@ -1,17 +1,18 @@
 ---
 import LayoutMaterias from "@layouts/LayoutMaterias.astro";
-import { ListaRedes } from "@lib/ListaRedes";
+import LayoutDias from "@layouts/LayoutDias.astro";
+import { ListaGeometría } from "@lib/ListaGeometría"
 import ClasesMaterias from "@components/ClasesMaterias"
 
-const shortName = "lab_redes"
+const shortName = "geometría"
 ---
 
-<LayoutMaterias title="Inicio" materiaLink={shortName} materiaName="Lab Redes">
+<LayoutMaterias title="Inicio" materiaLink={shortName} materiaName="Geometría">
   <h1 class="title">
-    Laboratorio de Redes de Área Local
+    Geometría
   </h1>
   <ul class="menu h-full w-full flex flex-col justify-start items-center">
-    <ClasesMaterias lista={ListaRedes} listaName={shortName} />
+    <ClasesMaterias lista={ListaGeometría} listaName={shortName}/>
   </ul>
 </LayoutMaterias>
 

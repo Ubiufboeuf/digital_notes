@@ -1,0 +1,91 @@
+---
+import LayoutMaterias from "@/layouts/LayoutMaterias.astro";
+---
+
+<LayoutMaterias
+  materiaLink="bd"
+  materiaName="BD"
+  title="Clase 1/8"
+  date="1 de Agosto de 2024"
+  fileName="bd_day1_8">
+  <article class="max-w-[700px] w-full mx-auto flex flex-col gap-8">
+    <section>
+      <h1 class="title">Normalización</h1>
+    </section>
+    
+    <section>
+      <p>Se le llama al proces por el cual transformamos datos complejos a un conjunto de estructuras de datos más pequeñas.</p>
+    </section>
+    
+    <section>
+      <h2 class="title-sub">Ventajas</h2>
+      <ul>
+        <li class="list-inside list-disc">Más fácil de entender las cosas.</li>
+        <li class="list-inside list-disc">Menos repeticiones de datos y por ello menos uso de memoria en disco.</li>
+        <li class="list-inside list-disc">Previene errores lógicos.</li>
+        <li class="list-inside list-disc">Facilita agregar columnas.</li>
+      </ul>
+    </section>
+
+    <section>
+      <p>(img) 3º Forma Normal</p>
+      <p>(img) 2º Forma Normal</p>
+      <p>(img) 1º Forma Normal</p>
+    </section>
+
+    <section>
+      <div class="flex gap-2">
+        <h2 class="title-sub">Ejemplo</h2><h2 class="title3">:</h2><h2 class="title3">Pedido-Prod</h2>
+      </div>
+      <table>
+        <tr>
+          <th>ID_pedido</th>
+          <th>Fecha</th>
+          <th>ID_cliente</th>
+          <th>Nombre</th>
+          <th>ID_producto</th>
+          <th>Nombre_producto</th>
+        </tr>
+        <tr>
+          <td>123</td>
+          <td>23/11/10</td>
+          <td>01</td>
+          <td>Juan</td>
+          <td>P01</td>
+          <td>Mouse</td>
+        </tr>
+        <tr>
+          <td>123</td>
+          <td>23/11/10</td>
+          <td>01</td>
+          <td>Juan</td>
+          <td>P02</td>
+          <td>Teclado</td>
+        </tr>
+        <tr>
+          <td>123</td>
+          <td>23/11/10</td>
+          <td>07</td>
+          <td>Juan</td>
+          <td>P01</td>
+          <td>Monitor</td>
+        </tr>
+        <tr>
+          <td>345</td>
+          <td>01/12/10</td>
+          <td>02</td>
+          <td>María</td>
+          <td>P01</td>
+          <td>Mouse</td>
+        </tr>
+      </table>
+    </section>
+  </article>
+</LayoutMaterias>
+
+<style>
+  td, th {
+    border: 2px solid white;
+    padding: 4px;
+  }
+</style>

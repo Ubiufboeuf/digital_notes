@@ -1,0 +1,129 @@
+---
+import LayoutMaterias from '@layouts/LayoutMaterias.astro';
+
+---
+
+<LayoutMaterias
+  title='Clase 31/7'
+  date='31 de Julio de 2024'
+  fileName='redes_day31_7'
+  materiaName='Lab Redes'
+  materiaLink='lab_redes'
+>
+
+  <article id="art31_7" class="max-w-[700px] w-full mx-auto flex flex-col gap-8">
+    <section>  
+      <h1 class="title">Análisis de tráfico</h1>
+    </section>
+    <section class="text-sep8">
+      <p>-> Descargar e instalar Wireshark con wincap (Windows) o con tcpdump o npcap (Linux)</p>
+      <div role="tablist" class="tabs tabs-lifted">
+        <input
+          type="radio"
+          name="my_tabs_1"
+          role="tab"
+          class="tab"
+          aria-label="Debian / Ubuntu"
+          checked
+        />
+        <div role="tabpanel" class="tab-content p-2">
+          <div class="mockup-code">
+            <pre data-prefix=">"><code>sudo apt-get install tcpdump</code></pre>
+            <pre data-prefix=">"><code>sudo apt install wireshark</code></pre>
+          </div>
+        </div>
+      
+        <input
+          type="radio"
+          name="my_tabs_1"
+          role="tab"
+          class="tab"
+          aria-label="Fedora"
+        />
+        <div role="tabpanel" class="tab-content p-2">
+          <div class="mockup-code">
+            <pre data-prefix=">"><code>sudo dnf install tcpdump</code></pre>
+            <pre data-prefix=">"><code>sudo dnf install wireshark</code></pre>
+          </div>
+        </div>
+      </div>
+      <p class="text-warning">npcap es más complicado de instalar para Linux que para Windows, no lo recomiendo a menos que sea la única opción disponible</p>
+      <p>-> Ejecutar con administrador</p>
+    </section>
+    <section class="text-sep8">
+      <p>Wireshark es una herramienta de análisis de red usada para analizar el tráfico y examinar los paquetes que circulan por una red de computadoras.</p>
+      <p>Para realizar dicho análisis y refinar la captura podemos usar diferentes filtros.</p>
+    </section>
+    <section class="text-sep8">
+      Comandos de filtros para Wireshark
+      <div role="tablist" class="tabs tabs-lifted">
+        <input
+          type="radio"
+          name="my_tabs_2"
+          role="tab"
+          class="tab"
+          aria-label="IP"
+          checked
+        />
+        <div role="tabpanel" class="tab-content p-2">
+          <div class="mockup-code">
+            <pre data-prefix=">"><code>ip.src == &lt;dirección&gt;</code></pre>
+          </div>
+        </div>
+      
+        <input
+          type="radio"
+          name="my_tabs_2"
+          role="tab"
+          class="tab"
+          aria-label="IP destino"
+        />
+        <div role="tabpanel" class="tab-content p-2">
+          <div class="mockup-code">
+            <pre data-prefix=">"><code>ip.dst == &lt;dirección&gt;</code></pre>
+          </div>
+        </div>
+      
+        <input
+          type="radio"
+          name="my_tabs_2"
+          role="tab"
+          class="tab"
+          aria-label="Origen y destino"
+        />
+        <div role="tabpanel" class="tab-content p-2">
+          <div class="mockup-code">
+            <pre data-prefix=">"><code>ip.addr == &lt;dirección&gt;</code></pre>
+          </div>
+        </div>
+      
+        <input
+          type="radio"
+          name="my_tabs_2"
+          role="tab"
+          class="tab"
+          aria-label="Rango"
+        />
+        <div role="tabpanel" class="tab-content p-2">
+          <div class="mockup-code">
+            <pre data-prefix=">"><code>ip.addr &gt; &lt;dirección&gt; && ip.addr &lt;= &lt;dirección&gt;</code></pre>
+          </div>
+        </div>
+    </section>
+  </article>
+
+  <style>
+    #art31_7 .code-sep pre[data-prefix]{
+      justify-content: space-between;
+      display: flex;
+      padding-inline: 16px;
+    }
+
+    #art31_7 .code-sep pre[data-prefix]:before {
+      /* background: red; */
+      width: fit-content;
+      margin-inline: 8px;
+    }
+  </style>
+
+</LayoutMaterias>

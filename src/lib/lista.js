@@ -7,12 +7,12 @@ const lista = [
   {
     title: "Física",
     content: "",
-    link: "/fisica/"
+    link: "/física/"
   },
   {
     title: "Electrónica",
     content: "",
-    link: "/electronica/"
+    link: "/electrónica/"
   },
   {
     title: "Diseño Web",
@@ -22,17 +22,17 @@ const lista = [
   {
     title: "Geometría",
     content: "",
-    link: "/geometria/"
+    link: "/geometría/"
   },
   {
     title: "Programación",
     content: "",
-    link: "/programacion/"
+    link: "/programación/"
   },
   {
     title: "Matemáticas",
     content: "",
-    link: "/matematicas/"
+    link: "/matemáticas/"
   },
   {
     title: "Lab Redes",
@@ -42,7 +42,7 @@ const lista = [
   {
     title: "Economía",
     content: "",
-    link: "/economia/"
+    link: "/economía/"
   },
   {
     title: "APT",

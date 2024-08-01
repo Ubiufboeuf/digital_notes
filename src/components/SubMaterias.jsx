@@ -1,5 +1,6 @@
 import { ListaInglés }from "@/lib/ListaInglés"
 import { ListaRedes } from "@lib/ListaRedes"
+import mes from "@/lib/mes"
 
 export function SubMaterias({ materia }) {
   const listaMaterias = {
@@ -59,7 +60,7 @@ export function SubMaterias({ materia }) {
   return lib.map((item, idx) => {
     // console.log("materia", materia.title, "item", item)
     return (
-      <li><a href={`${materia.link}${item.link}`}>{item.date}</a></li>
+      <li><a href={`${materia.link}${item.link}`}>{item.fecha.dia} de {mes[item.fecha.mes - 1]} de {item.fecha.año}</a></li>
     )
   })
   return (

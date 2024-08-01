@@ -1,22 +1,17 @@
 ---
 import LayoutMaterias from "@layouts/LayoutMaterias.astro";
-import LayoutDias from "@layouts/LayoutDias.astro";
 import { ListaInglés } from "@/lib/ListaInglés";
+import ClasesMaterias from "@/components/ClasesMaterias";
 
+const shortName = "inglés"
 ---
 
-<LayoutMaterias title="Inicio" materiaLink="inglés" materiaName="Inglés">
+<LayoutMaterias title="Inicio" materiaLink={shortName} materiaName="Inglés">
   <h1 class="title">
     Inglés
   </h1>
   <ul class="menu h-full w-full flex flex-col justify-start items-center">
-    {
-      ListaInglés.map((dia) => {
-        return (
-          <li id="dia" class="w-full"><a href=`${dia.link}` class="h-full w-full max-w-[700px] mx-auto flex items-center text-info link underline-offset-4">Clase {dia.fecha.dia}/{dia.fecha.mes} - {dia.date}</a></li>
-        )
-      })
-    }
+    <ClasesMaterias lista={ListaInglés} listaName={shortName} />
   </ul>
 </LayoutMaterias>
 

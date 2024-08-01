@@ -6,25 +6,25 @@ import { FinalCrumb } from "./FinalCrumb"
 interface Props {
   title: string,
   date?: string,
-  dateLink?: string,
+  fileName?: string,
   materiaName: string,
   materiaLink: string,
 }
 
-const { title, date, dateLink, materiaName, materiaLink } = Astro.props;
+const { title, date, fileName, materiaName, materiaLink } = Astro.props;
 ---
 
 <Layout title=`${title} - ${materiaName}`>
   <main class="text-primary w-full max-w-[calc(900px-(8*4))] h-full mx-auto px-8 flex flex-col">
-    <div class="min-h-16 max-w-[700px] w-full mx-auto flex justify-between items-center">
+    <div class="min-h-16 max-w-[700px] w-full mx-auto flex justify-between items-center flex-wrap">
       <div class="breadcrumbs h-8">
         <ul class="h-full">
           <li><a href="/">Inicio</a></li>
           <li><a href={`/${materiaLink}/`}>{materiaName}</a></li>
-          <FinalCrumb date={date} link={dateLink} />
+          <FinalCrumb date={date} link={fileName} />
         </ul>
       </div>
-      <p>{date}</p>
+      <p class="flex flex-nowrap">{date}</p>
     </div>
     <slot />
   </main>
