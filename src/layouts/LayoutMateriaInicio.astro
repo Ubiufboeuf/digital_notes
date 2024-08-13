@@ -1,0 +1,21 @@
+---
+import LayoutMaterias from "@layouts/LayoutMaterias.astro";
+import ClasesMaterias from "@components/ClasesMaterias"
+import { nombresMaterias } from "@/lib/nombresMaterias";
+import { listaMaterias } from "@/lib/listaDeListas"
+
+interface Props { linkName: string }
+const { linkName } = Astro.props
+
+const { nm_longName, nm_linkName } = nombresMaterias(linkName)
+const Lista = listaMaterias[nm_linkName]
+---
+
+<LayoutMaterias linkName={nm_linkName}>
+  <h1 class="title">
+    {nm_longName}
+  </h1>
+  <ul class="menu h-full w-full flex flex-col justify-start items-center">
+    <ClasesMaterias lista={Lista} materiaName={nm_linkName}/>
+  </ul>
+</LayoutMaterias>

@@ -1,17 +1,19 @@
-import { SubMaterias } from "./SubMaterias"
-// Acá debería haber un import
-// de todas las listas con las
-// clases de las materias
+import { nombresMaterias } from "@/lib/nombresMaterias"
+import ClasesMaterias from "./ClasesMaterias"
+import { listaMaterias } from "@/lib/listaDeListas"
 
 function MateriaAside({ materia }) {  
+  const { nm_primaryName, nm_linkName } = nombresMaterias(materia.title)
+  const lista = listaMaterias[nm_linkName]
+
   return (
     <>
       <li>
         <details name="materiaAside">
-          <summary>{materia.title}</summary>
+          <summary>{nm_primaryName}</summary>
           <ul>
-            <li><a href={materia.link}>Inicio</a></li>
-            <SubMaterias materia={materia} />
+            <li><a href={`/${nm_linkName}`}>Inicio</a></li>
+            <ClasesMaterias lista={lista} materiaName={nm_linkName} short={true} />
           </ul>
         </details>
       </li>

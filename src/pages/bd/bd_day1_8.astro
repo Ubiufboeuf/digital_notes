@@ -3,18 +3,16 @@ import LayoutMaterias from "@/layouts/LayoutMaterias.astro";
 ---
 
 <LayoutMaterias
-  materiaLink="bd"
-  materiaName="BD"
-  title="Clase 1/8"
-  date="1 de Agosto de 2024"
-  fileName="bd_day1_8">
-  <article class="max-w-[700px] w-full mx-auto flex flex-col gap-8">
+  fecha={{dia: 1, mes: 8, año: 2024}}
+  linkName="bd"
+>
+  <article>
     <section>
       <h1 class="title">Normalización</h1>
     </section>
     
     <section>
-      <p>Se le llama al proces por el cual transformamos datos complejos a un conjunto de estructuras de datos más pequeñas.</p>
+      <p>Se le llama al proceso por el cual transformamos datos complejos a un conjunto de estructuras de datos más pequeñas.</p>
     </section>
     
     <section>
@@ -27,65 +25,69 @@ import LayoutMaterias from "@/layouts/LayoutMaterias.astro";
       </ul>
     </section>
 
-    <section>
-      <p>(img) 3º Forma Normal</p>
-      <p>(img) 2º Forma Normal</p>
-      <p>(img) 1º Forma Normal</p>
+    <section class="flex flex-col gap-2">
+      <div class="flex gap-2 h-6">
+        <img src="/favicon.svg" class="h-6" />
+        <p> 3º Forma Normal</p>
+      </div>
+      <div class="flex gap-2 h-6">
+        <img src="/favicon.svg" class="h-6" />
+        <p> 2º Forma Normal</p>
+      </div>
+      <div class="flex gap-2 h-6">
+        <img src="/favicon.svg" class="h-6" />
+        <p> 1º Forma Normal</p>
+      </div>
     </section>
 
     <section>
-      <div class="flex gap-2">
-        <h2 class="title-sub">Ejemplo</h2><h2 class="title3">:</h2><h2 class="title3">Pedido-Prod</h2>
+      <h2 class="title3 title-sub">
+         Ejemplo: Pedido-prod
+      </h2>
+      <div class="overflow-x-auto">
+        <table class="table">
+          <tr>
+            <th>ID_pedido</th>
+            <th>Fecha</th>
+            <th>ID_cliente</th>
+            <th>Nombre</th>
+            <th>ID_producto</th>
+            <th>Nombre_producto</th>
+          </tr>
+          <tr>
+            <td>123</td>
+            <td>23/11/10</td>
+            <td>01</td>
+            <td>Juan</td>
+            <td>P01</td>
+            <td>Mouse</td>
+          </tr>
+          <tr>
+            <td>123</td>
+            <td>23/11/10</td>
+            <td>01</td>
+            <td>Juan</td>
+            <td>P02</td>
+            <td>Teclado</td>
+          </tr>
+          <tr>
+            <td>123</td>
+            <td>23/11/10</td>
+            <td>07</td>
+            <td>Juan</td>
+            <td>P01</td>
+            <td>Monitor</td>
+          </tr>
+          <tr>
+            <td>345</td>
+            <td>01/12/10</td>
+            <td>02</td>
+            <td>María</td>
+            <td>P01</td>
+            <td>Mouse</td>
+          </tr>
+        </table>
       </div>
-      <table>
-        <tr>
-          <th>ID_pedido</th>
-          <th>Fecha</th>
-          <th>ID_cliente</th>
-          <th>Nombre</th>
-          <th>ID_producto</th>
-          <th>Nombre_producto</th>
-        </tr>
-        <tr>
-          <td>123</td>
-          <td>23/11/10</td>
-          <td>01</td>
-          <td>Juan</td>
-          <td>P01</td>
-          <td>Mouse</td>
-        </tr>
-        <tr>
-          <td>123</td>
-          <td>23/11/10</td>
-          <td>01</td>
-          <td>Juan</td>
-          <td>P02</td>
-          <td>Teclado</td>
-        </tr>
-        <tr>
-          <td>123</td>
-          <td>23/11/10</td>
-          <td>07</td>
-          <td>Juan</td>
-          <td>P01</td>
-          <td>Monitor</td>
-        </tr>
-        <tr>
-          <td>345</td>
-          <td>01/12/10</td>
-          <td>02</td>
-          <td>María</td>
-          <td>P01</td>
-          <td>Mouse</td>
-        </tr>
-      </table>
     </section>
   </article>
 </LayoutMaterias>
-
-<style>
-  td, th {
-    border: 2px solid white;
-    padding: 4px;
-  }
-</style>

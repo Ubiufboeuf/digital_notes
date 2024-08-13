@@ -1,18 +1,18 @@
-El orden del aside puede ser como:
+## ¿Cómo crear una nueva clase de forma manual?
 
-/
-├── Materia/
-│   └── Inicio
-│   └── Clase1 / Dia[dd][mm]
-│   └── Clase2 / Dia[dd][mm]
-│   └── Clase3 / Dia[dd][mm]
-└── Materia2/
-    └── Inicio
-    └── Clase1 / Dia[dd][mm]
-    └── Clase2 / Dia[dd][mm]
-    └── Clase3 / Dia[dd][mm]
+1. Añadir item a la lista de la materia, debe tener:
+    - Día
+    - Mes
+    - Año (opcional)
 
+    `{dia: [x], mes: [y], año: [z]}`
 
-## Posibles cambios a tener en cuenta
+2. Crea un archivo en la carpeta de la materia
+(la lista de nombres está en el archivo
+[nombresMaterias.js](/src/lib/nombresMaterias.js))
 
-- Componente "Drawer" de daisyUI: Facilita mucho el aside
+3. Nombra el archivo de la siguiente forma: `[materia]_day[dia]_[mes].astro`
+
+4. Importa en el archivo el layout [&lt;layoutMaterias&gt;](/src/layouts/LayoutMaterias.astro)
+
+5. Establece las propiedades del layout: día, mes, año (opcional)

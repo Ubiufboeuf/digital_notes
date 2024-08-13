@@ -1,22 +1,4 @@
 ---
-import LayoutMaterias from "@layouts/LayoutMaterias.astro";
-import LayoutDias from "@layouts/LayoutDias.astro";
-import { ListaRedes } from "@lib/ListaRedes";
-import ClasesMaterias from "@components/ClasesMaterias"
-
+import LayoutMateriaInicio from "@/layouts/LayoutMateriaInicio.astro"
 ---
-
-<LayoutMaterias title="Inicio" materiaLink="lab_redes" materiaName="Lab Redes">
-  <h1 class="title">
-    Laboratorio de Redes de Área Local
-  </h1>
-  <ul class="menu h-full w-full flex flex-col justify-start items-center">
-    <ClasesMaterias lista={ListaRedes} />
-  </ul>
-</LayoutMaterias>
-
-<style>
-  #dia {
-    height: 48px;
-  }
-</style>
+<LayoutMateriaInicio linkName="so" /> 

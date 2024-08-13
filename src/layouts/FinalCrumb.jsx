@@ -1,7 +1,7 @@
-export function FinalCrumb({ date, link }) {
-  if (date) {
-    return (
-      <li><a href={link}>{date}</a></li>
-    )
-  }
+export function FinalCrumb({ longDate, link }) {
+  if (!longDate) return
+
+  return (
+    <li><a href={`${link}`}>{longDate}</a></li>
+  )
 }

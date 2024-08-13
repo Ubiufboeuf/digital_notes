@@ -1,11 +1,14 @@
-import mes from "@/lib/mes"
+import { mes } from "@/lib/mes"
 
-function ClasesMaterias({ lista, listaName }) {
+function ClasesMaterias({ lista, materiaName, short = false }) {
   return lista.map((item) => {
-    console.log(item.fecha)
-    return (
-      <li id="dia" className="w-full"><a href={`/${listaName}/${item.link}`} className="h-full w-full max-w-[700px] mx-auto flex items-center text-info link underline-offset-4">Clase {item.fecha.dia}/{item.fecha.mes} - {item.fecha.dia} de {mes[item.fecha.mes - 1]} de {item.fecha.año}</a></li>
-    )
+    const classLink = `${materiaName}_day${item.dia}_${item.mes}`
+    const nombreClase = (short) ? `Clase ${item.dia}/${item.mes}` : `Clase ${item.dia}/${item.mes} - ${item.dia} de ${mes[item.mes - 1]} de ${item.año}`
+    if (short) {
+      return <li><a href={`/${materiaName}/${classLink}`}>{nombreClase}</a></li>
+    } else {
+      return <li id="dia" className="w-full"><a href={`/${materiaName}/${classLink}`} className="h-full w-full max-w-[700px] mx-auto flex items-center text-info link underline-offset-4">{nombreClase}</a></li>
+    }
   })
 }
 

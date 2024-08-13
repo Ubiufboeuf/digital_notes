@@ -1,7 +1,27 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import { Materia } from '@components/Materia.jsx'
-import lista from "@lib/lista.js"
+import { lista as listaMateriasInicio } from "@/lib/listaMateriasInicio.js"
+import { nombresMaterias } from '@/lib/nombresMaterias';
+
+// array temporal contiene objetos con posición y valor de ordenamiento
+const mapped = listaMateriasInicio.map((el, i) => {
+  return { index: i, value: el.title.toLowerCase() }
+});
+
+// ordenando el array mapeado que contiene los valores reducidos
+mapped.sort(function (a, b) {
+  if (a.value > b.value) return 1
+  if (a.value < b.value) return -1
+  return 0
+});
+
+// contenedor para el orden resultante
+const result = mapped.map((el) => {
+  return el.index
+});
+
+// console.log("mapped: ", mapped)
 ---
 
 <Layout title="Inicio">
@@ -10,12 +30,15 @@ import lista from "@lib/lista.js"
 		class="grid place-items-center gap-8 w-full max-w-[calc(900px-(8*4))] mx-auto"
 	>
 		{
-			lista.map((materia) => {
+			result.map((idx) => {
+				// console.log("nombresMaterias: ", nombresMaterias(listaMateriasInicio[idx].title))
+				const { nm_primaryName, nm_shortName, nm_longName, nm_linkName } = nombresMaterias(listaMateriasInicio[idx].title)
+
 				return (
 					<Materia
-						title={materia.title}
-						body={materia.content}
-						href={materia.link}
+						title={nm_primaryName}
+						body={nm_longName}
+						href={nm_linkName}
 					/>
 				)
 			})
