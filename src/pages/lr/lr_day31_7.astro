@@ -4,14 +4,11 @@ import LayoutMaterias from '@layouts/LayoutMaterias.astro';
 ---
 
 <LayoutMaterias
-  title='Clase 31/7'
-  date='31 de Julio de 2024'
-  fileName='redes_day31_7'
-  materiaName='Lab Redes'
-  materiaLink='lab_redes'
+  fecha={{dia: 31, mes: 7, año: 2024}}
+  linkName="lr"
 >
 
-  <article id="art31_7" class="max-w-[700px] w-full mx-auto flex flex-col gap-8">
+  <article>
     <section>  
       <h1 class="title">Análisis de tráfico</h1>
     </section>
@@ -111,19 +108,4 @@ import LayoutMaterias from '@layouts/LayoutMaterias.astro';
         </div>
     </section>
   </article>
-
-  <style>
-    #art31_7 .code-sep pre[data-prefix]{
-      justify-content: space-between;
-      display: flex;
-      padding-inline: 16px;
-    }
-
-    #art31_7 .code-sep pre[data-prefix]:before {
-      /* background: red; */
-      width: fit-content;
-      margin-inline: 8px;
-    }
-  </style>
-
 </LayoutMaterias>
