@@ -3,6 +3,7 @@ import ClasesMaterias from "./ClasesMaterias"
 import { listaMaterias } from "@/lib/listaDeListas"
 
 function MateriaAside({ materia }) {  
+  console.log("materia: ", materia)
   const { nm_primaryName, nm_linkName } = nombresMaterias(materia.title)
   const lista = listaMaterias[nm_linkName]
 
@@ -13,7 +14,7 @@ function MateriaAside({ materia }) {
           <summary>{nm_primaryName}</summary>
           <ul>
             <li><a href={`/${nm_linkName}`}>Inicio</a></li>
-            <ClasesMaterias lista={lista} materiaName={nm_linkName} short={true} />
+            <ClasesMaterias lista={lista} materiaName={nm_linkName} />
           </ul>
         </details>
       </li>

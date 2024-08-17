@@ -1,6 +1,9 @@
 ---
 import MateriaAside from "@components/MateriaAside";
 import { lista as listaMateriasAside } from "@/lib/listaMateriasInicio";
+import ordenador from "@/lib/ordenador"
+import tailwindConfig from "tailwind.config.mjs"
+import { listaMaterias } from "@/lib/listaDeListas";
 
 interface Props {
 	title: string;
@@ -8,25 +11,15 @@ interface Props {
 
 const { title } = Astro.props;
 
-const mapped = listaMateriasAside.map((el, i) => {
-	return { index: i, value: el.title.toLowerCase() }
-});
+const materiasOrdenadas = ordenador(listaMateriasAside, "materias")
 
-mapped.sort((a, b) => {
-  if (a.value > b.value) return 1
-  if (a.value < b.value) return -1
-  return 0
-});
 
-const result = mapped.map((el) => el.index);
+const temas = ordenador(tailwindConfig.daisyui.themes)
 
-function handleAdd() {
-	console.log("aaa")
-}
 ---
 
 <!doctype html>
-<html lang="es">
+<html data-theme="luxury" lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -37,7 +30,8 @@ function handleAdd() {
 	</head>
 	<body id="root">
 		<header>
-			<div class="navbar bg-base-200">
+			<nav class="navbar bg-base-200">
+				<!-- Botón abrir menú -->
 				<div class="flex-none">
 					<button id="menu-btn" class="btn btn-square btn-ghost md:hidden">
 						<svg
@@ -53,9 +47,50 @@ function handleAdd() {
 						</svg>
 					</button>
 				</div>
+				<!-- Logo proyecto + enlace inicio -->
 				<div class="flex-1">
 					<a href="/" class="btn btn-ghost text-xl">DigitalNotes</a>
 				</div>
+				<div class="nolist dropdown dropdown-bottom dropdown-end">
+					<div tabindex="0" role="button" class="btn btn-ghost rounded-btn">
+						Temas
+						<svg
+							width="12px"
+							height="12px"
+							class="inline-block h-2 w-2 fill-current opacity-60"
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 2048 2048">
+							<path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
+						</svg>
+					</div>
+					<ul tabindex="0" class="h-96 overflow-y-auto dropdown-content bg-base-300 rounded-box z-[1] w-52 p-2 shadow-2xl">
+						<li>
+							<input
+								type="radio"
+								name="theme-dropdown"
+								class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+								aria-label="Predeterminado"
+								value="default"
+								checked />
+						</li>
+						{
+							temas.map((tema) => {
+								const nombreTema = tema.value[0].toUpperCase() + tema.value.substr(1, tema.value.length)
+								return (
+								<li>
+									<input
+										type="radio"
+										name="theme-dropdown"
+										class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+										aria-label={nombreTema}
+										value={tema.value} />
+								</li>
+								)
+							})
+						}
+					</ul>
+				</div>
+				<!-- Botón 3 puntos -->
 				<div class="flex-none">
 					<!-- Open the modal using ID.showModal() method -->
 					<button class="btn btn-ghost" onclick="my_modal_2.showModal()">
@@ -98,14 +133,15 @@ function handleAdd() {
 						</form>
 					</dialog>
 				</div>
-			</div>
+			</nav>
 		</header>
 		<main-wrapper id="main-wrapper" class="grid">
 			<aside id="aside" class="bg-base-100 relative max-w-full h-screen flex justify-center items-center flex-col">
 				<ul class="menu h-full min-h-fit w-full max-w-full overflow-y-auto flex-nowrap">
 					{
-						result.map((materiaIdx) => {
-							return <MateriaAside materia={listaMateriasAside[materiaIdx]} />
+						materiasOrdenadas.map((materia) => {
+							console.log("layout: ", materia)
+							return <MateriaAside materia={listaMateriasAside[materia.idx]} />
 						})
 					}
 				</ul>
@@ -184,7 +220,7 @@ function handleAdd() {
 	}
 
 	body #main-wrapper {
-		grid-template-columns: 300px 1fr;
+		grid-template-columns: min(100%, 300px) 1fr;
 		height: 100%;
 		width: 100%;
 	}
@@ -208,6 +244,38 @@ function handleAdd() {
 		/* padding: 32px 0 128px; */
 		overflow-y: auto;
 		scrollbar-gutter: stable;
+	}
+</style>
+
+<style is:global>
+	ol > li {
+		list-style: decimal;
+	}
+
+	ul > li {
+		list-style: disc;
+	}
+
+	.nolist, .nolist * {
+		list-style: none;
+	}
+
+	code-mini {
+		background: rgb(32 32 32);
+		font-size: 15px;
+		margin: 2px;
+		width: fit-content;
+		padding: 2px 8px;
+		border-radius: 4px;
+	}
+
+	pre {
+		width: fit-content;
+		margin: 2px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 4px;
 	}
 
 	.opened {
@@ -237,6 +305,13 @@ function handleAdd() {
 		text-underline-offset: 8px;
 	}
 		
+	.title4 {
+		font-size: 19px;
+		font-weight: 500;
+		margin: 0px;
+		text-underline-offset: 6px;
+	}
+		
 	.title3 {
 		font-size: 22px;
 		font-weight: 500;
@@ -259,7 +334,6 @@ function handleAdd() {
 		margin-bottom: 32px;
 		text-align: center;
 	}
-
 </style>
 <style is:global>
 	@media (width < 768px) {
@@ -287,10 +361,10 @@ function handleAdd() {
 	}
 </style>
 
-<style is:global>
+<!-- <style is:global>
 	@media (width <= 450px) {
 		#main-wrapper {
 			background: red;
 		}
 	}
-</style>
+</style> -->

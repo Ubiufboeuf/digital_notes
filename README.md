@@ -3,7 +3,7 @@
 1. Añadir item a la lista de la materia, debe tener:
     - Día
     - Mes
-    - Año (opcional)
+    - Año
 
     `{dia: [x], mes: [y], año: [z]}`
 

@@ -1,0 +1,75 @@
+---
+import LayoutMaterias from "@/layouts/LayoutMaterias.astro";
+---
+
+<LayoutMaterias
+  fecha={{ dia: 13, mes: 8, año: 2024 }}
+  linkName="prog"
+>
+  <article>
+
+    <section>
+      <h1 class="title">NetBeans + GitHub</h1>
+    </section>
+
+    <section>
+      <h2 class="title3">Obtener token para clonar repositorio</h2>
+      <ol class="ml-8">
+        <li>Ingresar o crear cuenta</li>
+        <li>Token de seguridad</li>
+        <ol class="ml-4">
+          <li>Click en el ávatar de la cuenta</li>
+          <li>Settings</li>
+          <li>Developer Settings</li>
+          <li>Personal access token</li>
+          <ol class="ml-4">
+            <li>Generate new token</li>
+            <li>Generate new token (classic)</li>
+          </ul>
+        </ul>
+      </ol>
+    </section>
+
+    <section>
+      <h3 class="title3">Clonar un proyecto de GitHub a NetBeans</h3>
+      <ol class="ml-8">
+        <li>Team</li>
+        <li>Git</li>
+        <li>Clone</li>
+        <ol class="ml-4">
+          <li>URL del repositorio</li>
+          <li>Nombre de usuario</li>
+          <li>Token</li>
+        </ol>
+      </ol>
+    </section>
+
+    <section>
+      <h3 class="title3">Subir un proyecto a GitHub</h3>
+      <ol class="ml-8">
+        <li>
+          <p>Entrar a GitHub y crear un repositorio</p>
+          <p>Copiar la URL del repositorio</p>
+        </li>
+        <li>
+          <strong>NetBeans</strong>
+          <p>Click derecho sobore el proyecto</p>
+        </li>
+        <li>
+          <strong>Versioning</strong>
+          <p>Initialize Git Repository (sólo la primera vez)</p>
+        </li>
+        <li>
+          <p><strong>Git</strong></p>
+          <p>-> Commit -> escribir comentario</p>
+        </li>
+        <li>
+          <p><strong>Git</strong></p>
+          <p>-> Remote -> Push -> (URL, usuario, token)</p>
+        </li>
+      </ol>
+      <br>
+      <p>O hacer todo eso desde terminal con git</p>
+    </section>
+  </article>
+</LayoutMaterias>

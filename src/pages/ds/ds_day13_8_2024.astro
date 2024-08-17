@@ -1,0 +1,112 @@
+---
+import LayoutMaterias from "@/layouts/LayoutMaterias.astro";
+---
+
+<LayoutMaterias
+  fecha={{ dia: 13, mes: 8, año: 2024 }}
+  linkName="ds"
+>
+  <article>
+    <section>
+      <h1 class="title">Variables</h1>
+    </section>
+    <section>
+      <div>
+        <h2 class="title2">Declaración de variables</h2>
+        <table class="table">
+          <tr>
+            <th>Variable</th>
+            <th>Característica</th>
+          </tr>
+          <tr>
+            <td>
+              <code-mini>let nombre</code-mini>
+            </td>
+            <td
+              >Se puede redeclarar el valor y no recuerdo si es global o por
+              bloque</td
+            >
+          </tr>
+          <tr>
+            <td>
+              <code-mini>const nombre</code-mini>
+            </td>
+            <td>Se puede redeclarar el valor y es de ámbito de bloque</td>
+          </tr>
+          <tr>
+            <td>
+              <code-mini>var nombre</code-mini>
+            </td>
+            <td
+              >(Obsoleto) Se puede redeclarar el valor y es de ámbito global</td
+            >
+          </tr>
+        </table>
+      </div>
+    </section>
+    <section>
+      <h2 class="title2">Tipos de datos</h2>
+    </section>
+    <section>
+      <h3 class="title4">Primitivos</h3>
+      <table class="table">
+        <tr>
+          <th>Tipo</th>
+          <th>Literal</th>
+        </tr>
+        <tr>
+          <td>Número</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Texto</td>
+          <td>"Hola"</td>
+        </tr>
+        <tr>
+          <td>Buleano</td>
+          <td>true</td>
+        </tr>
+        <tr>
+          <td>Nulo</td>
+          <td>null</td>
+        </tr>
+        <tr>
+          <td>Indefinido</td>
+          <td>undefined</td>
+        </tr>
+      </table>
+    </section>
+    <section>
+      <h3 class="title4">Compuestos</h3>
+      <table class="table">
+        <tr>
+          <th>Tipo</th>
+          <th>Literal</th>
+          <th>Acceso</th>
+        </tr>
+        <tr>
+          <td>Arreglos</td>
+          <td>
+            <code-mini>["xd", 14513453, ["otro array"], Object]</code-mini>
+          </td>
+          <td>
+            <code-mini>variable[idx]</code-mini>
+          </td>
+        </tr>
+        <tr>
+          <td>Objetos</td>
+          <td>
+            <code-mini>&lbrace;clave: "valor", "otra clave": "otro valor", si:false&rbrace;</code-mini>
+          </td>
+          <td>
+            <div>
+              <pre><code-mini>variable.propiedad</code-mini></pre>
+              <pre><code-mini>variable[propiedad]</code-mini></pre>
+              <pre><code-mini>variable["propiedad"]</code-mini></pre>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </section>
+  </article>
+</LayoutMaterias>
