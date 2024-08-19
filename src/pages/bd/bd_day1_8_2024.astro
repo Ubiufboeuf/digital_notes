@@ -26,18 +26,21 @@ import LayoutMaterias from "@/layouts/LayoutMaterias.astro";
     </section>
 
     <section class="flex flex-col gap-2">
-      <div class="flex gap-2 h-6">
-        <img src="/favicon.svg" class="h-6" />
-        <p> 3º Forma Normal</p>
-      </div>
-      <div class="flex gap-2 h-6">
-        <img src="/favicon.svg" class="h-6" />
-        <p> 2º Forma Normal</p>
-      </div>
-      <div class="flex gap-2 h-6">
-        <img src="/favicon.svg" class="h-6" />
-        <p> 1º Forma Normal</p>
-      </div>
+      {
+        ["","",""].map((_, i) => {
+          return (
+            <div class="flex justify-center items-center w-fit gap-3 h-8">
+              <div class="bg-black flex justify-center items-center h-8 w-8 border rounded outline-1">
+                <img
+                  class="h-6"
+                  src="/assets/icon - db.webp"
+                />
+              </div>
+              <p>{i + 1}º Forma Normal</p>
+            </div>
+          )
+        })
+      }
     </section>
 
     <section>
