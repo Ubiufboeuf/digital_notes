@@ -1,0 +1,168 @@
+---
+import LayoutMaterias from "@/layouts/LayoutMaterias.astro";
+---
+
+<LayoutMaterias
+  fecha={{dia:23, mes:8, año:2024}}
+  linkName="ing"  
+>
+<main class="flex flex-col gap-4">
+  <section class="flex">
+    <h1 class="mx-auto title3">How to form:</h1>
+  </section>
+  
+  <section class="border border-green-500 overflow-auto flex h-fit gap-4 p-2">
+    <aside class="flex items-center justify-center">
+      <div class="rounded-full h-8 w-8 border flex justify-center items-center border-green-500 text-green-500">+</div>
+    </aside>
+    <main>
+      <p>Subject + verb in past</p>
+      <p>"We went to Paris last year" -> Enphatic "did"</p>
+      <p>e.g: We did go to Paris Last year.</p>
+      <p>(e.g: exemple gratia - por ejemplo)</p>
+      <p>(ex: example - ejemplo)</p>
+    </main>
+  </section>
+
+  <section class="border border-orange-500 overflow-auto flex h-fit gap-4 p-2">
+    <aside class="flex items-center justify-center">
+      <div class="rounded-full h-8 w-8 border flex justify-center items-center border-orange-400 text-orange-400">-</div>
+    </aside>
+    <main class="flex gap-4 overflow-hidden">
+      <p>did not (didn't) + base form of the verb.</p>
+      <p>The french didn't speak English that much.</p>
+      <p>In the class</p>
+    </main>
+    <aside class="border-l border-0 p-2 flex flex-col justify-center">
+      <p>I did it</p>
+      <p>I do hw (homework)</p>
+    </aside>
+  </section>
+
+  <section class="border border-blue-500 overflow-auto flex h-fit gap-4 p-2">
+    <aside class="w-1/5">
+      <h3 class="title4 text-blue-500">Question words</h3>
+    </aside>
+    <main class="flex justify-evenly items-center w-4/5">
+      <p>Who...</p>
+      <p>Where...</p>
+      <p>Why...</p>
+      <p>When <span class="underline">did</span> you go?</p>
+    </main>
+  </section>
+
+  <section class="flex flex-wrap justify-between gap-4 min-w-fit">
+    <div class="flex flex-col border-primary border p-4">
+      <h3 class="title4 sub">Yes; No questions</h3>
+      <p>Did you go?</p>
+      <p> - Yes, I did. (Yes)</p>
+      <p> - No, I didn't. (No)</p>
+    </div>
+
+    <div class="relative flex flex-col border-primary border p-4">
+      <h4 class="title4 sub">Verb to be</h4>
+      <p>ser / estar</p>
+      <div class="flex items-center">
+        <div class="flex flex-col justify-center p-2">
+          <p>- am (present)</p>
+          <p>- is (present)</p>
+          <p>- are (present)</p>
+        </div>
+        <div class="flex flex-col justify-center border-l p-2 h-fit">
+          <p>were</p>
+          <p>was</p>
+        </div>
+      </div>
+      <p><span class="sub">you</span>, we, they -> were</p>
+      <p>She, he, it, I -> was</p>
+    </div>
+  </section>
+
+  <section class="border border-primary p-4">
+    <h4 class="title4 sub">Regulares (agrega +ed)</h4>
+    <p>Si tiene 1 sílaba, o 2 con la sílaba final acentuada</p>
+    <p>to stop -> stopp<span class="sub">ed</span></p>
+    <p>to cry -> cri<span class="sub">ed</span></p>
+    <p>to alive -> arrive<span class="sub">d</span></p>
+  </section>
+
+  <section class="flex gap-2 p-2">
+    <div>
+      <div class="flex">
+        <p class="w-28">I</p>
+        <div class="flex gap-6">
+          <p>---</p>
+          <p>am</p>
+        </div>
+      </div>
+      <div class="flex">
+        <p class="w-28">You (singular)</p>
+        <div class="flex gap-6">
+          <p>---</p>
+          <p>are</p>
+        </div>
+      </div>
+      <div class="flex">
+        <p class="w-28">he</p>
+        <div class="flex gap-6">
+          <p>---</p>
+          <p>is</p>
+        </div>
+      </div>
+      <div class="flex">
+        <p class="w-28">she</p>
+        <div class="flex gap-6">
+          <p>---</p>
+          <p>is</p>
+        </div>
+      </div>
+      <div class="flex">
+        <p class="w-28">it</p>
+        <div class="flex gap-6">
+          <p>---</p>
+          <p>is</p>
+        </div>
+      </div>
+      <div class="flex">
+        <p class="w-28">we</p>
+        <div class="flex gap-6">
+          <p>---</p>
+          <p>are</p>
+        </div>
+      </div>
+      <div class="flex">
+        <p class="w-28">they</p>
+        <div class="flex gap-6">
+          <p>---</p>
+          <p>are</p>
+        </div>
+      </div>
+      <div class="flex">
+        <p class="w-28">you (plural)</p>
+        <div class="flex gap-6">
+          <p>---</p>
+          <p>are</p>
+        </div>
+      </div>
+    </div>
+    <p>&LongRightArrow; "I am at IAE | I am beatiful"</p>
+  </section>
+
+  <section class="flex flex-col">
+    <h2 class="title2">Exercise</h2>
+    <p class="mx-auto mb-8">Escribir las siguientes frases en inglés usando el verbo to be:</p>
+    <div class="flex justify-between flex-wrap p-2">
+      <ol class="p-3">
+        <li>Ellas <span class="sub">sí fueron</span> ayer.</li>
+        <li>Nosotros no <span class="sub">quisimos</span> ir.</li>
+        <li>¿Quién era él?</li>
+      </ol>
+      <ol class="p-3">
+        <li>They <span class="sub">did go</span> yesterday.</li>
+        <li>We didn't <span class="sub">want</span> to go.</li>
+        <li>Who were he?</li>
+      </ol>
+    </div>
+  </section>
+</main>
+</LayoutMaterias>

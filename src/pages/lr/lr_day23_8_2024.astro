@@ -1,0 +1,46 @@
+---
+import LayoutMaterias from "@/layouts/LayoutMaterias.astro";
+---
+
+<LayoutMaterias
+  fecha={{dia:23, mes:8, año:2024}}
+  linkName="lr"  
+>
+
+<main class="flex flex-col gap-16">
+  <section class="flex flex-col">
+    <h1 class="title sub text-base-content">Compartir recursos con SMB</h1>
+    <p class="mx-auto">(SMB: Server Message Block)</p>
+  </section>
+
+  <section>
+    <h3 class="title3">Carpeta/directorio:</h3>
+    <ol>
+      <li>
+        <p>Crear ucarpeta que vamos a compartir</p>
+        <p>Ej: C:\compartida</p>
+      </li>
+      <li>Click derecho sobre carpeta -> Propiedades</li>
+      <li>Seleccionar pestaña <span class="sub text-base-content">compartir</span> (uso compartido)</li>
+      <ol class="ml-8">
+        <li>Click sobre botón compartir</li>
+      </ol>
+      <li>En acceso a la red, elegir usuarios o grupo de usuarios. En el caso de dar acceso a todos los usuarios, escribir o seleccionar <span class="sub text-base-content">Todos/Everyone</span></li>
+      <ol class="ml-8">
+        <li>Click en botón compartir (tener en cuenta nivel de permisos).</li>
+      </ol>
+    </ol>
+  </section>
+
+  <section>
+    <h2 class="sub title2 text-green-600">Acceder de forma remota:</h2>
+    <ol>
+      <li>
+        <p>En el explorador escribir la dirección ip del equipo donde se encuentra el directorio compartido.</p>
+        <p>Ej: \\192.168.0.120</p>
+      </li>
+      <li>Doble click sobre el directorio compartido.</li>
+    </ol>
+  </section>
+</main>
+</LayoutMaterias>

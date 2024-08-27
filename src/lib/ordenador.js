@@ -13,7 +13,7 @@ export default function ordenador(lista, tipo) {
   })
 
   const result = mapped.map((el) => {
-    console.log("ordenador: ", el)
+    // console.log("ordenador: ", el)
     return { idx: el.idx, value: el.value }
   })
 

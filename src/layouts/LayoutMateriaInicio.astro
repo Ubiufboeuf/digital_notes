@@ -17,6 +17,6 @@ const { nm_longName, nm_linkName } = nombresMaterias(linkName);
     {nm_longName}
   </h1>
   <section class="menu px-0 h-full w-full flex flex-col items-center gap-6">
-    <FiltroClases linkName={nm_linkName} client:only/>
+    <FiltroClases linkName={nm_linkName} client:load/>
   </section>
 </LayoutMaterias>

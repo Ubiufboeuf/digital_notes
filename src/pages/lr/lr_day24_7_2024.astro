@@ -27,12 +27,12 @@ import LayoutMaterias from "@layouts/LayoutMaterias.astro";
         es usado para enviar mensajes de rror e información.
       </p>
       <p>
-        Es parte del protocolo de internet (IP) y se utiliza principalmente para diagnosticar problemas en la red. Es un protocolo de la <span class="sub">capa de red</span> del <a class="link link-info">modelo OSI</a> (capa 3)</p>
+        Es parte del protocolo de internet (IP) y se utiliza principalmente para diagnosticar problemas en la red. Es un protocolo de la <span class="sub">capa de red</span> del <span class="sub">modelo OSI</span> (capa 3)</p>
     </section>
     
     <section class="text-sep8">
       <h1 class="title">Diagnóstico de red</h1>
-      <li><a class="link link-info">Ping</a></li>
+      <li><span class="sub">Ping</span></li>
       <p>Este comando es usao para verificar la conectividad entre 2 dispositivos.</p>
       <p>Envía un paquete <span class="sub">ICMP</span> "echo request" y espera un <span class="sub">ICMP</span> "echo reply".</p>
       <div class="mockup-code"><pre data-prefix=">"><code>ping [options] &lt;destination&gt;</code></pre></div>
@@ -41,7 +41,7 @@ import LayoutMaterias from "@layouts/LayoutMaterias.astro";
       <div class="mockup-code">
         <pre data-prefix=">"><code>ping -t [ip]</code></pre>
       </div>
-      <p class="text-warning">Esto no funciona en Linux. En Linux el parámetro -t define el tiempo de vida de los paquetes.</p>
+      <p class="text-warning">En Linux por defecto se envían paquetes de forma contínua, el parámetro -t funciona para otra cosa.</p>
       <br />
       <p>El parámetro -n especifica el número de solicitudes "echo request" que se envían.</p>
       <div class="mockup-code">

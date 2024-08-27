@@ -8,8 +8,8 @@ export default function FiltroClases({ linkName }) {
   const [DynamicList, setDynamicList] = useState(FullList)
 
   useEffect(() => {
-    console.log(DynamicList)
-    console.log(FullList)
+    // console.log(DynamicList)
+    // console.log(FullList)
     if (FullList.length === 0) {
       setDynamicList()
     }
@@ -35,8 +35,8 @@ export default function FiltroClases({ linkName }) {
 
   function handleChange(e) {
     const value = e.target.value
-    console.log("localList: ", FullList)
-    console.log("value change: ", value)
+    // console.log("localList: ", FullList)
+    // console.log("value change: ", value)
     const newList = filtredListiltrada(FullList, value)
     setDynamicList(newList)
   }

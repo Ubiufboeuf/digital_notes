@@ -1,0 +1,43 @@
+---
+import ThemeList from "@/components/ThemeList";
+import ordenador from "@/lib/ordenador";
+import tailwindConfig from "tailwind.config.mjs";
+
+interface Props {
+  tema: string;
+}
+
+const { tema } = Astro.props;
+
+const temas = ordenador(tailwindConfig.daisyui.themes);
+---
+
+<div class="nolist dropdown dropdown-bottom dropdown-end">
+  <div tabindex="0" role="button" class="btn btn-ghost rounded-btn">
+    Temas
+    <svg
+      width="12px"
+      height="12px"
+      class="inline-block h-2 w-2 fill-current opacity-60"
+      viewBox="0 0 2048 2048"
+    >
+      <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"
+      ></path>
+    </svg>
+  </div>
+  <ul
+    tabindex="0"
+    id="themes-list"
+    class="h-96 overflow-y-auto dropdown-content bg-base-300 rounded-box z-[1] w-52 p-2 shadow-2xl"
+  >
+    {
+      temas.map((tema) => {
+        return (
+          <li>
+            <ThemeList tema={tema} client:only />
+          </li>
+        );
+      })
+    }
+  </ul>
+</div>

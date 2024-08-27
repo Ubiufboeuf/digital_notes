@@ -1,9 +1,10 @@
 import { nombresMaterias } from "@/lib/nombresMaterias"
 import ClasesMaterias from "./ClasesMaterias"
 import { listaMaterias } from "@/lib/listaDeListas"
-
+import AsideMateriaSummary from "./AsideMateriaSummary"
+ 
 function MateriaAside({ materia }) {  
-  console.log("materia: ", materia)
+  // console.log("materia: ", materia)
   const { nm_primaryName, nm_linkName } = nombresMaterias(materia.title)
   const lista = listaMaterias[nm_linkName]
 
@@ -11,7 +12,12 @@ function MateriaAside({ materia }) {
     <>
       <li>
         <details name="materiaAside">
-          <summary>{nm_primaryName}</summary>
+          {/* <AsideMateriaSummary */}
+          <summary
+            key={nm_primaryName}>
+            {nm_primaryName}
+          </summary>
+          {/* </AsideMateriaSummary> */}
           <ul>
             <li><a href={`/${nm_linkName}`}>Inicio</a></li>
             <ClasesMaterias lista={lista} materiaName={nm_linkName} />
