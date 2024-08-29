@@ -139,20 +139,7 @@ let tema = "black"
 		</main-wrapper>
 	</body>
 </html>
-<script>
-  const tema = window.localStorage.getItem("theme");
-	document.body.setAttribute("data-theme", tema)
-  console.log("tema localStorage: ", tema);
-  const themes = document.querySelectorAll(".theme-controller");
-  themes.forEach((item) => {
-    item.setAttribute("checked", "false")
-    if (item.getAttribute("value") === tema) {
-      console.log("item: ", item.getAttribute("value"));
-      item.setAttribute("checked", "true");
-      document.body.setAttribute("data-theme", tema)
-    }
-  });
-	
+<script>	
 	const menu_btn = document.querySelector("#menu-btn");
 	menu_btn.addEventListener("click", () => {
 		document.querySelector("#aside").classList.toggle("opened");
@@ -277,7 +264,7 @@ let tema = "black"
 		border-radius: 4px;
 	}
 
-	pre {
+	pre:not(.nopre) {
 		width: fit-content;
 		margin: 2px;
 		display: flex;
@@ -332,7 +319,7 @@ let tema = "black"
 		font-size: 27px;
 		line-height: 32px;
 		font-weight: 600;
-		margin-bottom: 26px;
+		margin-bottom: 24px;
 		text-align: center;
 	}
 
@@ -340,7 +327,7 @@ let tema = "black"
 		font-size: 30px;
 		line-height: 36px;
 		font-weight: 700;
-		margin-bottom: 32px;
+		margin-bottom: 28px;
 		text-align: center;
 	}
 </style>

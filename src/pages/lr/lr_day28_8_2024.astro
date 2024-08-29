@@ -1,0 +1,40 @@
+---
+import LayoutMaterias from "@/layouts/LayoutMaterias.astro";
+
+---
+
+<LayoutMaterias
+  fecha={{dia:28,mes:8,año:2024}}
+  linkName="lr"
+>
+
+  <main class="flex flex-col gap-8">
+    <h1 class="title">SSH - Secure Shell</h1>
+
+    <section>
+      <p>Es un protocolo de red que proporciona un método seguro para acceder y administrar sistemas remotos en una red insegura. Este implementa un sistema de cifrado para proteger la comunicación entre cliente y servidor.</p>
+    </section>
+
+    <section>
+      <h3 class="title3">Características</h3>
+      <ul>
+        <li>
+          <h4 class="title4 sub">Cifrado</h4>
+          <p>Utiliza métodos de encriptación en los datos transmitidos.</p>
+        </li>
+        <li>
+          <h4 class="title4 sub">Integridad</h4>
+          <p>Asegura que los datos no sean alterados durante la transmisión.</p>
+        </li>
+        <li>Acceso remoto a servidores y equipos.</li>
+        <li>Ejecucicón de comandos de forma remota.</li>
+        <li>
+          <h4 class="title4 sub">SCP</h4>
+          <p>"Secure Copy", transferencia segura de archivos mediante herramientas <span class="sub">SCP</span>, como por ejemplo <a href="https://winscp.net/eng/downlaod.php">WinSCP</a></p>
+        </li>
+      </ul>
+    </section>
+    <h4 class="title4">Servicio a utilizar en clase: <span class="sub">OpenSSH</span></h4>
+  </main>
+
+</LayoutMaterias>

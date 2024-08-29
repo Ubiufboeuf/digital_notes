@@ -34,7 +34,7 @@ const temas = ordenador(tailwindConfig.daisyui.themes);
       temas.map((tema) => {
         return (
           <li>
-            <ThemeList tema={tema} client:only />
+            <ThemeList tema={tema} client:load />
           </li>
         );
       })
