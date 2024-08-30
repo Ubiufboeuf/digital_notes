@@ -11,7 +11,7 @@ interface Props {
 
 let { title } = Astro.props;
 
-const materiasOrdenadas = ordenador(listaMateriasAside, "materias");
+const materiasOrdenadas = ordenador({ lista: listaMateriasAside, tipo: "materias" });
 
 let tema = "black"
 ---
@@ -125,7 +125,7 @@ let tema = "black"
 				class="bg-base-100 relative max-w-full h-screen flex justify-center items-center flex-col"
 			>
 				<ul
-					class="menu h-full min-h-fit w-full max-w-full overflow-y-auto flex-nowrap"
+					class="nolistp menu h-full min-h-fit w-full max-w-full overflow-y-auto flex-nowrap"
 				>
 					{
 						materiasOrdenadas.map((materia) => {
@@ -242,7 +242,8 @@ let tema = "black"
 </style>
 
 <style is:global>
-	ul,ol {
+	ul:not(.nolistp),
+	ol:not(.nolistp) {
 		margin-left: 32px;
 	}
 
@@ -354,7 +355,6 @@ let tema = "black"
 		}
 		#aside {
 			position: absolute;
-			padding-top: 49px;
 			left: -300px;
 			z-index: 9999;
 			width: 300px;

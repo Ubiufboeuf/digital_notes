@@ -9,7 +9,7 @@ interface Props {
 
 const { tema } = Astro.props;
 
-const temas = ordenador(tailwindConfig.daisyui.themes);
+const temas = ordenador({ lista: tailwindConfig.daisyui.themes, tipo: "" });
 ---
 
 <div class="nolist dropdown dropdown-bottom dropdown-end">

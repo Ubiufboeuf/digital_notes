@@ -3,6 +3,8 @@ import Layout from '@layouts/Layout.astro';
 import { Materia } from '@components/Materia.jsx'
 import { lista as listaMateriasInicio } from "@/lib/listaMateriasInicio.js"
 import { nombresMaterias } from '@/lib/nombresMaterias';
+import ordenador from '@/lib/ordenador';
+import { os } from "./node.mjs"
 
 // array temporal contiene objetos con posición y valor de ordenamiento
 const mapped = listaMateriasInicio.map((el, i) => {
@@ -21,28 +23,43 @@ const result = mapped.map((el) => {
   return el.index
 });
 
+const resultThree = ordenador({ lista: listaMateriasInicio, tipo: "materias" })
 // console.log("mapped: ", mapped)
 ---
 
 <Layout title="Inicio">
-	<main
-		id="main"
-		class="grid place-items-center gap-8 w-full max-w-[calc(900px-(8*4))] mx-auto"
-	>
-		{
-			result.map((idx) => {
-				// console.log("nombresMaterias: ", nombresMaterias(listaMateriasInicio[idx].title))
-				const { nm_primaryName, nm_shortName, nm_longName, nm_linkName } = nombresMaterias(listaMateriasInicio[idx].title)
+	<main class="grid place-items-center gap-8 w-full max-w-[calc(900px-(8*4))] mx-auto">
+		<h1 class="title text-primary">Materias recientes</h1>
+		<p>Tu sistema operativo es {os.hostname()}</p>
+			{
+				resultThree.map((idx) => {
+					const { nm_primaryName, nm_shortName, nm_longName, nm_linkName } = nombresMaterias(listaMateriasInicio[idx.idx].title)
+					return (
+						<Materia
+							title={nm_primaryName}
+							body={nm_longName}
+							href={nm_linkName}
+						/>
+					)
+				})
+			}
+		<h2 class="title2">Lista de materias</h2>
+		<materias-wrapper id="main" class="grid place-items-center gap-8 w-full max-w-[calc(900px-(8*4))] mx-auto">
+			{
+				result.map((idx) => {
+					// console.log("nombresMaterias: ", nombresMaterias(listaMateriasInicio[idx].title))
+					const { nm_primaryName, nm_shortName, nm_longName, nm_linkName } = nombresMaterias(listaMateriasInicio[idx].title)
 
-				return (
-					<Materia
-						title={nm_primaryName}
-						body={nm_longName}
-						href={nm_linkName}
-					/>
-				)
-			})
-		}
+					return (
+						<Materia
+							title={nm_primaryName}
+							body={nm_longName}
+							href={nm_linkName}
+						/>
+					)
+				})
+			}
+		</materias-wrapper>
 	</main>
 </Layout>
 

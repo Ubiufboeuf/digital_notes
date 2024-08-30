@@ -1,4 +1,4 @@
-export default function ordenador(lista, tipo) {
+export default function ordenador({ lista, tipo }) {
   const mapped = [...lista].map((el, i) => {
     if (tipo === "materias") {
       return { idx: i, value: el.title.toLowerCase() }
