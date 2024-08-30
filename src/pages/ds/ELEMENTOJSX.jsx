@@ -1,7 +1,7 @@
 import { principalDir, $fs as fs, $os as os } from "@/pages/node.mjs"
 
 export default function ELEMENTOJSX () {
-  const dri = fs.readdirSync(`ftp://192.168.1.4/`,)
+  const dri = fs.readdirSync(`${os.homedir()}/`,)
 
   return dri.map((item) => {
     return (
