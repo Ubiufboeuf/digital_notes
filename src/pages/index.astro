@@ -4,7 +4,7 @@ import { Materia } from '@components/Materia.jsx'
 import { lista as listaMateriasInicio } from "@/lib/listaMateriasInicio.js"
 import { nombresMaterias } from '@/lib/nombresMaterias';
 import ordenador from '@/lib/ordenador';
-// import { $os as os } from "./node.mjs"
+import { $os as os } from "./node.mjs"
 
 // array temporal contiene objetos con posición y valor de ordenamiento
 const mapped = listaMateriasInicio.map((el, i) => {
@@ -30,7 +30,7 @@ const resultThree = ordenador({ lista: listaMateriasInicio, tipo: "materias" })
 <Layout title="Inicio">
 	<main class="grid place-items-center gap-8 w-full max-w-[calc(900px-(8*4))] mx-auto">
 		<h1 class="title text-primary">Materias recientes</h1>
-		<!-- <p>Tu sistema operativo es {os().hostname()}</p> -->
+		<p>Tu sistema operativo es {os().hostname()}</p>
 			{
 				resultThree.map((idx) => {
 					const { nm_primaryName, nm_shortName, nm_longName, nm_linkName } = nombresMaterias(listaMateriasInicio[idx.idx].title)
