@@ -1,5 +1,5 @@
 ---
-import {path404 as Path} from "@/pages/path404.jsx"
+
 ---
 
 <html lang="es">
@@ -134,7 +134,7 @@ import {path404 as Path} from "@/pages/path404.jsx"
         <span class="statusMessage">Not found</span>
       </h1>
 
-      <pre><Path client:only></pre>
+      <pre>{Astro.url.pathname}</pre>
     </main>
   </body>
 </html>
