@@ -1,0 +1,42 @@
+---
+import LayoutMaterias from "@/layouts/LayoutMaterias.astro";
+---
+
+<LayoutMaterias
+  fecha={{dia:2,mes:9,año:2024}}
+  linkName="ing"
+>
+
+  <main>
+    
+    <section class="flex flex-col mb-12 items-center">
+      <h1 class="title">Irregular verbs</h1>
+      <p>Choose the correct options:</p>
+    </section>
+    
+    <section class="mb-12">
+      <p>ex: have - <span class="sub">had</span> / haved</p>
+      <ol>
+        <li>meet - meet (presente) / <span class="sub">met</span> (pasado)</li>
+        <li>win - wan / <span class="sub">won</span></li>
+        <li>lose - <span class="sub">lost</span> / losen</li>
+        <li>buy - buyed / <span class="sub">bought</span></li>
+        <li>eat - eat / <span class="sub">ate</span></li>
+        <li>see - <span class="sub">saw</span> / sew</li>
+      </ol>
+    </section>
+
+    <h1 class="title">Past simple: regular and irregular</h1>
+
+    <section>
+      <ol>
+        <li>I <span class="sub">found</span> (find) the bag under the desk</li>
+        <li>He <span class="sub">went</span> (go) there on holiday</li>
+        <li>We <span class="sub">visited</span> (visit) the museum</li>
+        <li>She <span class="sub">had</span> (have) pizza for dinner</li>
+      </ol>
+    </section>
+
+  </main>
+
+</LayoutMaterias>
