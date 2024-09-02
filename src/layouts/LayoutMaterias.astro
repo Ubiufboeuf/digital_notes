@@ -3,6 +3,7 @@ import Layout from "./Layout.astro";
 import { FinalCrumb } from "./FinalCrumb"
 import { mes as convertMes} from "@/lib/mes";
 import { nombresMaterias } from "@/lib/nombresMaterias";
+import { updateRecentVisited } from "@/lib/handleRecent";
 
 interface Props {
   fecha?: any,
@@ -28,6 +29,7 @@ if (fecha) {
 const title = fechaCorta ?? "Inicio"
 const { nm_primaryName, nm_shortName } = nombresMaterias(linkName)
 
+updateRecentVisited({ linkName: linkName, fecha: fecha })
 ---
 
 <Layout title=`${title} - ${nm_shortName}`>

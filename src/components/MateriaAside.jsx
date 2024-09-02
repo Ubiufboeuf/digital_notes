@@ -18,7 +18,7 @@ function MateriaAside({ materia }) {
             {nm_primaryName}
           </summary>
           {/* </AsideMateriaSummary> */}
-          <ul>
+          <ul class="nolistp">
             <li><a href={`/${nm_linkName}`}>Inicio</a></li>
             <ClasesMaterias lista={lista} materiaName={nm_linkName} />
           </ul>

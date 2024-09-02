@@ -22,16 +22,59 @@ const result = mapped.map((el) => {
 	return el.index;
 });
 
-const resultThree = ordenador({ lista: listaMateriasInicio, tipo: "materias" });
+const ultimasMaterias = [
+ { fecha: { dia: 1, mes: 1, año: 2024 }, idx: 4 },
+ { fecha: { dia: 1, mes: 1, año: 2024 }, idx: 5 },
+ { fecha: { dia: 1, mes: 1, año: 2024 }, idx: 6 },
+ { fecha: { dia: 1, mes: 1, año: 2024 }, idx: 7 },
+ { fecha: { dia: 1, mes: 1, año: 2024 }, idx: 8 },
+ { fecha: { dia: 1, mes: 1, año: 2024 }, idx: 8 },
+ { fecha: { dia: 1, mes: 1, año: 2024 }, idx: 8 },
+ { idx: 9 },
+];
 // console.log("mapped: ", mapped)
+
+const hasVisitedMaterias = true
 ---
 
 <Layout title="Inicio">
 	<main
 		class="grid place-items-center gap-8 w-full max-w-[calc(900px-(8*4))] mx-auto"
 	>
-		<h1 class="title text-primary">Materias recientes</h1>
-		<h2 class="title2">Lista de materias</h2>
+		<wrapper-recent class:list={[{
+			"flex flex-col": hasVisitedMaterias,
+			"hidden": !hasVisitedMaterias,
+		}]}>
+			<h1 class="title">Reciente</h1>
+			<ultimas-materias class="w-full flex flex-wrap gap-8 justify-center">
+				{
+					ultimasMaterias.map((data) => {
+						const { fecha, idx } = data
+						const { nm_primaryName, nm_linkName } = nombresMaterias(listaMateriasInicio[idx].title);
+						let details: string
+						let link: string
+						if (!fecha) {
+							details = "Inicio"
+							link = `${nm_linkName}/`
+						} else {
+							const { dia, mes, año } = fecha
+							details = `Clase ${dia}/${mes}/${año}`
+							link = `${nm_linkName}/${nm_linkName}_day${dia}_${mes}_${año}`
+						}
+
+						return (
+						<article class="card bg-primary-content w-[200px] min-w-fit h-full max-h-[140px] shadow-xl text-primary">
+							<a aria-label={nm_primaryName} href={link} class="card-body cursor-pointer">
+								<h2 class="card-title">{nm_primaryName}</h2>
+								<p>{details}</p>
+							</a>
+						</article>
+						);
+					})
+				}
+			</ultimas-materias>
+		</wrapper-recent>
+		<h2 class="title text-primary">Lista de materias</h2>
 		<materias-wrapper
 			id="main"
 			class="grid place-items-center gap-8 w-full max-w-[calc(900px-(8*4))] mx-auto"
