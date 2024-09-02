@@ -13,10 +13,6 @@ export default function ThemeList({ tema }) {
     document.body.setAttribute("data-theme", tema.value)
   }
 
-  useEffect(() => {
-    
-  }, [])
-
   return (
     <input
       onClick={changeTheme}
