@@ -1,0 +1,49 @@
+---
+import LayoutMaterias from "./LayoutMaterias.astro";
+import { mes as convertMes} from "@/lib/mes";
+import { nombresMaterias } from "@/lib/nombresMaterias";
+import ChangeDayBtn from "@/components/ChangeDayBtn"
+
+interface Props {
+  fecha?: any,
+  linkName?: string,
+}
+
+let { fecha, linkName = "" } = Astro.props;
+
+let dia: string
+let mes: string
+let año: string
+let fechaCorta: string
+let fechaLarga: string
+
+if (fecha) {
+  dia = fecha.dia;
+  mes = fecha.mes;
+  año = fecha.año;
+  fechaCorta = `Clase ${dia}/${mes}`
+  fechaLarga = (año) ? `${dia} de ${convertMes[+mes - 1]} de ${año}` : `${dia} de ${convertMes[+mes - 1]}` 
+}
+
+const hasPrev = false
+const hasNext = false
+---
+
+<LayoutMaterias
+  fecha={fecha}
+  linkName={linkName}
+>
+
+  <clase-wrapper class="flex flex-col items-center">
+    <article id="day-wrapper" class="max-w-[700px] w-full mx-auto flex flex-col">
+      <p class="flex flex-nowrap ml-auto mb-6">{fechaLarga}</p>
+      <slot />
+    </article>
+    
+    <div class={`${(!hasPrev && !hasNext) ? "hidden" : "flex w-full gap-4 flex-wrap justify-center"}`}>
+      <ChangeDayBtn visible={(hasPrev) ? true : false} type="prev" clase="Clase 23/12/2024" />
+      <ChangeDayBtn visible={(hasNext) ? true : false} type="next" clase="dia" />
+    </div>
+  </clase-wrapper>
+
+</LayoutMaterias>

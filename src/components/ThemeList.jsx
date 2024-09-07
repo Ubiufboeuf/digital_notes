@@ -18,8 +18,8 @@ export default function ThemeList({ tema }) {
       onClick={changeTheme}
       type="radio"
       name="theme-dropdown"
-      className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-      aria-label={nombreTema}
+      className="theme-controller btn btn-sm btn-block btn-ghost justify-center"
+      aria-label={(value === "luxury") ? `${nombreTema} (Predeterminado)` : nombreTema}
       value={value}
       defaultChecked={(value === "luxury") ? true : false}
     />

@@ -1,0 +1,66 @@
+---
+import LayoutClases from "@/layouts/LayoutClases.astro";
+---
+
+<LayoutClases
+  fecha={{ dia: 5, mes: 9, año: 2024 }}
+  linkName="bd"
+>
+
+  <main>
+    <section>
+      <p>Ingresar a (icono) XAMPP</p>
+      <p>Desde ahí iniciar Apache y MySQL</p>
+      <p class="mt-8">CMD</p>
+      <p>cd xampp/mysql/bin</p>
+      <p>mysql -u root -p</p>
+    </section>
+
+    <section>
+      <p>(No es case sensitive, pero bue)</p>
+      <p>Crear BD</p>
+      <p>CREATE DATABASE Ejemplo;</p>
+      <p>* Ver BD creadas: SHOW DATABASES;</p>
+      <p>* Usar BD: Use Ejemplo;</p>
+      <p>* Crear Tabla:
+      <div class="mockup-code">
+        <pre><code>CREATE TABLE alumno(
+  CI INT PRIMARY KEY,
+  Nombre varchar(20),
+  Edad INT,
+  Direccion varchar(20)
+);</code></pre>
+      </div>
+      </p>
+    </section>
+    
+    <p>* Crear tabla [_Docente_] con: numcobro, nombre, telefono</p>
+    <div class="mockup-code">
+
+    <pre><code>create table docente(
+  numcobro int primary key,
+  nombre varchar(50),
+  telefono int
+);</code></pre>
+</div>
+
+    <p>¿Qué sucede si tenemos FK?</p>
+    <div class="mockup-code">
+    <pre><code>create table tiene(
+  cialum int,
+  numcobr int,
+  anio date,
+  primary ke(cialum, numcobr),
+  foreign key(calum) references alumno(ci),
+  foreign key(numcobr) references docente(numcobro)
+);</code></pre>
+</div>
+
+
+    <section>
+      <p>¿Cómo podemos ver los atributos de una tabla?</p>
+      <code-mini>DESCRIBE Alumno;</code-mini>
+    </section>
+  </main>
+
+</LayoutClases>

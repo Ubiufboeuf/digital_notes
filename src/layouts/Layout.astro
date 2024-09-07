@@ -139,7 +139,7 @@ let tema = "black"
 		</main-wrapper>
 	</body>
 </html>
-<script>	
+<script>
 	const menu_btn = document.querySelector("#menu-btn");
 	menu_btn.addEventListener("click", () => {
 		document.querySelector("#aside").classList.toggle("opened");
@@ -209,7 +209,7 @@ let tema = "black"
 	}
 
 	body {
-		max-height: 100vh;
+		height: 100vh;
 		overflow-y: hidden;
 	}
 
@@ -242,6 +242,9 @@ let tema = "black"
 </style>
 
 <style is:global>
+	:root {
+		--code: red;
+	}
 	ul:not(.nolistp),
 	ol:not(.nolistp) {
 		margin-left: 32px;
@@ -260,8 +263,7 @@ let tema = "black"
 		list-style: none;
 	}
 
-	code-mini {
-		background: rgb(32 32 32);
+	code-mini, .code-mini {
 		font-size: 15px;
 		margin: 2px;
 		width: fit-content;
@@ -350,9 +352,6 @@ let tema = "black"
 		#main-wrapper > #menu-btn {
 			display: flex;
 		}
-		#main-wrapper > main {
-			width: 100%;
-		}
 		#aside {
 			position: absolute;
 			left: -300px;
@@ -366,11 +365,3 @@ let tema = "black"
 		}
 	}
 </style>
-
-<!-- <style is:global>
-	@media (width <= 450px) {
-		#main-wrapper {
-			background: red;
-		}
-	}
-</style> -->

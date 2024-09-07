@@ -21,7 +21,7 @@ if (fecha) {
   dia = fecha.dia;
   mes = fecha.mes;
   año = fecha.año;
-  fechaCorta = `Clase ${dia}/${mes}`
+  fechaCorta = `Clase ${dia}/${mes}/${año}`
   fechaLarga = (año) ? `${dia} de ${convertMes[+mes - 1]} de ${año}` : `${dia} de ${convertMes[+mes - 1]}` 
 }
 
@@ -32,7 +32,7 @@ const { nm_primaryName, nm_shortName } = nombresMaterias(linkName)
 ---
 
 <Layout title=`${title} - ${nm_shortName}`>
-  <main class="text-primary w-full max-w-[calc(900px-(8*4))] h-full mx-auto px-8 flex flex-col">
+  <main class="text-primary w-full h-full mx-auto px-8 flex flex-col">
     <div class="min-h-16 max-w-[700px] w-full mx-auto flex justify-between items-center flex-wrap">
       <div class="breadcrumbs h-8">
         <ul class="h-full">
@@ -43,14 +43,13 @@ const { nm_primaryName, nm_shortName } = nombresMaterias(linkName)
       </div>
     </div>
     <section id="clase-wrapper" class="max-w-[700px] w-full mx-auto flex flex-col">
-      <p class="flex flex-nowrap ml-auto mb-6">{fechaLarga}</p>
       <slot />
     </section>
   </main>
 </Layout>
 
 <style is:global>
-  #clase-wrapper > article {
+  #clase-wrapper > clase-wrapper #day-wrapper > article {
     max-width: 700px;
     width: 100%;
     margin-inline: auto;
