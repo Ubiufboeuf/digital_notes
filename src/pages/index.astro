@@ -4,34 +4,26 @@ import { Materia } from "@components/Materia.jsx";
 import { lista as listaMateriasInicio } from "@/lib/listaMateriasInicio.js";
 import { nombresMaterias } from "@/lib/nombresMaterias";
 import ordenador from "@/lib/ordenador";
+import listaRecientes from "@/lib/listaRecientes";
 
 // array temporal contiene objetos con posición y valor de ordenamiento
 const mapped = listaMateriasInicio.map((el, i) => {
-	return { index: i, value: el.title.toLowerCase() };
+	return { index: i, value: el.title.toLowerCase() }
 });
 
 // ordenando el array mapeado que contiene los valores reducidos
-mapped.sort(function (a, b) {
-	if (a.value > b.value) return 1;
-	if (a.value < b.value) return -1;
-	return 0;
+mapped.sort((a, b) => {
+	if (a.value > b.value) return 1
+	if (a.value < b.value) return -1
+	return 0
 });
 
 // contenedor para el orden resultante
 const result = mapped.map((el) => {
-	return el.index;
+	return el.index
 });
 
-const ultimasMaterias = [
- { fecha: { dia: 1, mes: 1, año: 2024 }, idx: 4 },
- { fecha: { dia: 1, mes: 1, año: 2024 }, idx: 5 },
- { fecha: { dia: 1, mes: 1, año: 2024 }, idx: 6 },
- { fecha: { dia: 1, mes: 1, año: 2024 }, idx: 7 },
- { fecha: { dia: 1, mes: 1, año: 2024 }, idx: 8 },
- { fecha: { dia: 1, mes: 1, año: 2024 }, idx: 8 },
- { fecha: { dia: 1, mes: 1, año: 2024 }, idx: 8 },
- { idx: 9 },
-];
+const ultimasMaterias = listaRecientes;
 // console.log("mapped: ", mapped)
 
 const hasVisitedMaterias = true
@@ -48,9 +40,9 @@ const hasVisitedMaterias = true
 			<h1 class="title">Reciente</h1>
 			<ultimas-materias class="w-full flex flex-wrap gap-8 justify-center">
 				{
-					ultimasMaterias.map((data) => {
-						const { fecha, idx } = data
-						const { nm_primaryName, nm_linkName } = nombresMaterias(listaMateriasInicio[idx].title);
+					ultimasMaterias.map((data, idx) => {
+						const { fecha, id } = data
+						const { nm_primaryName, nm_linkName } = nombresMaterias(listaMateriasInicio[id].title);
 						let details: string
 						let link: string
 						if (!fecha) {

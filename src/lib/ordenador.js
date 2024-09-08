@@ -2,6 +2,8 @@ export default function ordenador({ lista, tipo }) {
   const mapped = [...lista].map((el, i) => {
     if (tipo === "materias") {
       return { idx: i, value: el.title.toLowerCase() }
+    } else if (tipo === "reciente") {
+      return { idx: i, value: { id: el.id, fecha: el?.fecha } }
     }
     return { idx: i, value: el }
   })
