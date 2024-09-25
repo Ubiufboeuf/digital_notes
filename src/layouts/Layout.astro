@@ -13,11 +13,11 @@ let { title } = Astro.props;
 
 const materiasOrdenadas = ordenador({ lista: listaMateriasAside, tipo: "materias" });
 
-let tema = "black"
+let tema = "luxury"
 ---
 
 <!doctype html>
-<html data-theme={tema} lang="es">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -26,7 +26,7 @@ let tema = "black"
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} - Notes</title>
 	</head>
-	<body id="root">
+	<body id="root" data-theme={tema}>
 		<header>
 			<nav class="navbar bg-base-200">
 				<!-- Botón abrir menú -->
@@ -186,7 +186,7 @@ let tema = "black"
 		/* scrollbar-width: none; */
 	}
 
-	code {
+	code, code-mini, .code-mini {
 		font-family:
 			CascadiaCode,
 			Menlo,
@@ -204,7 +204,7 @@ let tema = "black"
 		scroll-behavior: smooth;
 	}
 
-	*:not(code, pre) {
+	*:not(code, pre, code-mini, .code-mini) {
 		font-family: Inter, Poppins, NotoSans, system-ui, Arial, sans-serif;
 	}
 
@@ -364,4 +364,12 @@ let tema = "black"
 			margin-bottom: 16px;
 		}
 	}
+</style>
+
+<!-- Este style es para los colores de daisy -->
+<style is:global>
+	& code-mini, .code-mini {
+		background: var(--fallback-p,oklch(var(--p)/var(--tw-text-opacity)));
+	}
+
 </style>
