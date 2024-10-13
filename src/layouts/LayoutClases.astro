@@ -1,8 +1,6 @@
 ---
 import LayoutMaterias from "./LayoutMaterias.astro";
 import { mes as convertMes} from "@/lib/mes";
-import { nombresMaterias } from "@/lib/nombresMaterias";
-import ChangeDayBtn from "@/components/ChangeDayBtn"
 
 interface Props {
   fecha?: any,
@@ -25,8 +23,6 @@ if (fecha) {
   fechaLarga = (año) ? `${dia} de ${convertMes[+mes - 1]} de ${año}` : `${dia} de ${convertMes[+mes - 1]}` 
 }
 
-const hasPrev = false
-const hasNext = false
 ---
 
 <LayoutMaterias
@@ -39,11 +35,6 @@ const hasNext = false
       <p class="flex flex-nowrap ml-auto mb-6">{fechaLarga}</p>
       <slot />
     </article>
-    
-    <div class={`${(!hasPrev && !hasNext) ? "hidden" : "flex w-full gap-4 flex-wrap justify-center"}`}>
-      <ChangeDayBtn visible={(hasPrev) ? true : false} type="prev" clase="Clase 23/12/2024" />
-      <ChangeDayBtn visible={(hasNext) ? true : false} type="next" clase="dia" />
-    </div>
   </clase-wrapper>
 
 </LayoutMaterias>

@@ -1,40 +1,73 @@
 ---
 import Layout from "./Layout.astro";
-import { FinalCrumb } from "./FinalCrumb"
-import { mes as convertMes} from "@/lib/mes";
+import { FinalCrumb } from "./FinalCrumb";
+import { mes as convertMes } from "@/lib/mes";
 import { nombresMaterias } from "@/lib/nombresMaterias";
+import ChangeDayBtn from "@/components/ChangeDayBtn.tsx";
+import { listaMaterias } from "@/lib/listaDeListas";
 
 interface Props {
-  fecha?: any,
-  linkName?: string,
+  fecha?: any;
+  linkName?: MateriaLinkName;
+  type?: string;
 }
 
-let { fecha, linkName = "" } = Astro.props;
+let { fecha, linkName, type } = Astro.props;
 
-let dia: string
-let mes: string
-let año: string
-let fechaCorta: string
-let fechaLarga: string
+let dia: string;
+let mes: string;
+let año: string;
+let fechaCorta: string;
+let fechaLarga: string;
 
 if (fecha) {
   dia = fecha.dia;
   mes = fecha.mes;
   año = fecha.año;
-  fechaCorta = `Clase ${dia}/${mes}/${año}`
-  fechaLarga = (año) ? `${dia} de ${convertMes[+mes - 1]} de ${año}` : `${dia} de ${convertMes[+mes - 1]}` 
+  fechaCorta = `Clase ${dia}/${mes}/${año}`;
+  fechaLarga = año
+    ? `${dia} de ${convertMes[+mes - 1]} de ${año}`
+    : `${dia} de ${convertMes[+mes - 1]}`;
 }
 
-const title = fechaCorta ?? "Inicio"
-const { nm_primaryName, nm_shortName } = nombresMaterias(linkName)
+const title = fechaCorta ?? "Inicio";
+const { nm_primaryName, nm_shortName } = nombresMaterias(linkName);
+
+let hasPrev = false;
+let hasNext = false;
+let prevTitle: ClassDate;
+let nextTitle: ClassDate;
+
+// if (type === "inicio") {
+// } else {
+const lista: ClassDate[] = Array.from(listaMaterias[linkName]);
+lista.map((fechaLista: ClassDate, idx: number) => {
+  if (!fecha || !fecha.dia) return;
+  if (
+    fecha.dia === fechaLista.dia &&
+    fecha.mes === fechaLista.mes &&
+    fecha.año === fechaLista.año
+  ) {
+    hasPrev = lista[idx - 1] ? true : false;
+    hasNext = lista[idx + 1] ? true : false;
+
+    prevTitle = hasPrev ? lista[idx - 1] : { dia: -1, mes: -1, año: -1 };
+    nextTitle = hasNext ? lista[idx + 1] : { dia: -1, mes: -1, año: -1 };
+    console.log("lista: ", lista[idx]);
+    console.log("fechaLista: ", fechaLista);
+  }
+});
+// }
 
 // updateRecentVisited({ linkName: linkName, fecha: fecha })
 ---
 
 <Layout title=`${title} - ${nm_shortName}`>
   <main class="text-primary w-full h-full mx-auto px-8 flex flex-col">
-    <div class="min-h-16 max-w-[700px] w-full mx-auto flex justify-between items-center flex-wrap">
-      <div class="breadcrumbs h-8">
+    <div
+      class="min-h-16 max-w-[700px] w-full mx-auto flex justify-between items-center flex-wrap"
+    >
+      <div class="breadcrumbs h-full">
         <ul class="h-full">
           <li><a href="/">Inicio</a></li>
           <li><a href={`/${linkName}/`}>{nm_primaryName}</a></li>
@@ -42,9 +75,32 @@ const { nm_primaryName, nm_shortName } = nombresMaterias(linkName)
         </ul>
       </div>
     </div>
-    <section id="clase-wrapper" class="max-w-[700px] w-full mx-auto flex flex-col">
+    <section
+      id="clase-wrapper"
+      class="max-w-[700px] w-full mx-auto flex flex-col"
+    >
       <slot />
     </section>
+    <div
+      class={`${!hasPrev && !hasNext ? "hidden" : "flex w-full mt-16 gap-4 flex-wrap justify-center"}`}
+    >
+      <ChangeDayBtn
+        visible={hasPrev ? true : false}
+        type="prev"
+        title={typeof prevTitle !== "string"
+          ? prevTitle
+          : { dia: -1, mes: -1, año: -1 }}
+        materiaLinkName={linkName}
+      />
+      <ChangeDayBtn
+        visible={hasNext ? true : false}
+        type="next"
+        title={typeof nextTitle !== "string"
+          ? nextTitle
+          : { dia: -1, mes: -1, año: -1 }}
+        materiaLinkName={linkName}
+      />
+    </div>
   </main>
 </Layout>
 
